@@ -1,11 +1,11 @@
 <html>
 <head>
-<title>Hello All!</title>
+<title>Evening</title>
 </head>
 <body>
-	<h1>Hello All!</h1>
+	<h1>Hello All</h1>
 	<p>
-		It is now
+		It is now devops
 		<%= new java.util.Date() %></p>
 	<p>
 		You are coming from 
