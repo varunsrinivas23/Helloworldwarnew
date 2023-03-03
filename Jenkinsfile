@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Clone Step') {
             steps {
-                sh 'rm -rf hello-world-war'
+                sh 'rm -rf Helloworldwarnew'
                 sh 'git clone https://github.com/San0705/Helloworldwarnew.git'
             }
         }
