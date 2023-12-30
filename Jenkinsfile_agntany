@@ -9,18 +9,18 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 withDockerRegistry([ credentialsId: "docker-hub-creds", url:""]) {
-                    sh 'docker tag mvn_docker san0705/jenkin_dock:$BUILD_NUMBER'
-                    sh 'docker push san0705/jenkin_dock:$BUILD_NUMBER' 
+                    sh 'docker tag jenkin_dock varunsrinivas23/helloworld:$BUILD_NUMBER'
+                    sh 'docker push varunsrinivas23/helloworld:$BUILD_NUMBER' 
                 }
             }
         }
         stage('Deploy Step') {
             steps {
                withDockerRegistry([ credentialsId: "docker-hub-creds", url:""]) {
-                sh 'docker pull san0705/jenkin_dock:$BUILD_NUMBER'
+                sh 'docker pull varunsrinivas23/helloworld:$BUILD_NUMBER'
                }
                 sh 'docker rm -f tom_docker'
-                sh 'docker run -itd -p 8060:8080 --name tom_docker jenkin_dock'
+                sh 'docker run -itd -p 8090:8080 --name tom_docker jenkin_dock'
             }
         }
     }
